@@ -158,7 +158,13 @@
          border: none;
          padding: 0.5rem;
          }
-
+         .gallery-image {
+         width: 100%;
+         max-width: 300px;
+         height: auto;
+         margin: 10px;
+         object-fit: cover;
+         }
          /* button {
          background-color: #007BFF;
          color: white;
@@ -199,7 +205,8 @@
                   <li><a href="#WorkExperience">Work Experience</a></li>
                   <li><a href="#Projects">Projects</a></li>
                   <li><a href="#Education">Education & Skills</a></li>
-                  <li><a href="#sandbox"> Sandbox</a></li>
+                  <li><a href="#sandbox">Sandbox</a></li>
+                  <li><a href="#Photography">Photography</a></li>
                </ul>
             </nav>
          </header>
@@ -445,8 +452,15 @@
                     <button type="submit">Send</button>
                   </form>
                 </div>
-                
             </article>
+
+            <!-- Photography -->
+            <article id="Photography">
+               <h2 class="major">Photography</h2>
+               <div id="image-gallery"></div>
+            </article>
+
+
             <!-- Contact Me -->
             <article id="Contact">
                <section>
@@ -509,5 +523,6 @@
       <script src="assets/js/fetchJoke.js"></script>
       <script src="assets/js/quiz.js"></script>
       <script src="assets/js/chat.js"></script>
+      <script src="assets/js/loadImageGallery.js"></script>
    </body>
 </html>
