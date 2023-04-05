@@ -83,7 +83,7 @@ async function callChatGPTAPI(message, apiKey) {
 
 app.get('/images', async (req, res) => {
   try {
-    const imageRefs = await storage.bucket().getFiles({ prefix: 'Pictures/' });
+    const imageRefs = await storage.bucket().getFiles({ prefix: 'BestPics/' });
     const imageURLs = await Promise.all(
       imageRefs[0].map(async (file) => {
         const [url] = await file.getSignedUrl({ action: 'read', expires: '03-09-2491' });
