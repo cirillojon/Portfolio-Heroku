@@ -1,0 +1,513 @@
+<!DOCTYPE HTML>
+<!--
+   Dimension by HTML5 UP
+   html5up.net | @ajlkn
+   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+   -->
+<html>
+   <head>
+      <title>Jonathan's Portfolio</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" href="assets/css/main.css" />
+      <noscript>
+         <link rel="stylesheet" href="assets/css/noscript.css" />
+      </noscript>
+      <style>
+         .container {
+         padding: 1.5em 0;
+         }
+         body {
+         font-family: 'Roboto', sans-serif;
+         }
+         h1, h2, h3, h4, h5, h6 {
+         font-weight: 600;
+         }
+         p {
+         line-height: 1.6;
+         }
+         a:hover {
+         color: #ff6e6c;
+         text-decoration: underline;
+         }
+         nav ul {
+         display: flex;
+         justify-content: space-around;
+         padding: 0;
+         list-style-type: none;
+         }
+         nav ul li a {
+         /* padding: 0.5em 1em; */
+         /* background-color: rgba(255, 255, 255, 0.1);
+         border-radius: 4px;
+         text-decoration: none; */
+         transition: all 0.3s;
+         }
+         nav ul li a:hover {
+         background-color: rgba(255, 255, 255, 0.3);
+         }
+         .image.main {
+         border-radius: 4px;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         }
+         h2.major {
+         word-break: break-word;
+         }
+         .widget {
+         background-color: #777777;
+         border-radius: 5px;
+         padding: 1rem;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+         margin-bottom: 1.5rem;
+         text-align: center;
+         }
+         #city-name,
+         #joke-title {
+         margin-bottom: 0.5rem;
+         }
+         #temperature,
+         #joke-content {
+         font-size: 1.5rem;
+         font-weight: bold;
+         margin-bottom: 0.5rem;
+         }
+         #description {
+         text-transform: capitalize;
+         }
+         #footer {
+         padding: 1em 0;
+         background-color: rgba(0, 0, 0, 0.1);
+         text-align: center;
+         }
+         .quiz-container {
+         margin-bottom: 1.5rem;
+         }
+         .question {
+         margin-bottom: 1.5rem;
+         }
+         .answer-option {
+         display: block;
+         position: relative;
+         padding-left: 35px;
+         margin-bottom: 12px;
+         cursor: pointer;
+         font-size: 18px;
+         user-select: none;
+         }
+         .answer-option input {
+         position: absolute;
+         opacity: 0;
+         cursor: pointer;
+         }
+         .checkmark {
+         position: absolute;
+         top: 0;
+         left: 0;
+         height: 25px;
+         width: 25px;
+         background-color: #eee;
+         border-radius: 50%;
+         }
+         .answer-option:hover input ~ .checkmark {
+         background-color: #ccc;
+         }
+         .answer-option input:checked ~ .checkmark {
+         background-color: #2196F3;
+         }
+         .checkmark:after {
+         content: "";
+         position: absolute;
+         display: none;
+         }
+         .answer-option input:checked ~ .checkmark:after {
+         display: block;
+         }
+         .checkmark:after {
+         top: 9px;
+         left: 9px;
+         width: 8px;
+         height: 8px;
+         border-radius: 50%;
+         background: white;
+         }
+         .trivia-widget {
+         margin-bottom: 2rem;
+         }
+
+         .chat-widget {
+         width: 300px;
+         height: 500px;
+         border: 1px solid #ccc;
+         display: flex;
+         flex-direction: column;
+         }
+
+         .chat-messages {
+         flex-grow: 1;
+         overflow-y: auto;
+         padding: 1rem;
+         }
+
+         .chat-input-form {
+         display: flex;
+         border-top: 1px solid #ccc;
+         }
+
+         #user-message {
+         flex-grow: 1;
+         border: none;
+         padding: 0.5rem;
+         }
+
+         /* button {
+         background-color: #007BFF;
+         color: white;
+         border: none;
+         padding: 0.5rem;
+         } */
+
+      </style>
+   </head>
+   <body class="is-preload">
+      <!-- Wrapper -->
+      <div id="wrapper">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-8">
+                  <h1>Jonathan Cirillo</h1>
+                  <h2>Software Engineer</h2>
+               </div>
+               <div class="col-md-4 text-right">
+                  <p><i class="fas fa-envelope"></i> <a href="mailto:jonathancirillo@outlook.com">jonathancirillo@outlook.com</a></p>
+                  <p><i class="fas fa-phone"></i> <a href="tel:4077181174">407.718.1174</a></p>
+                  <p><i class="fas fa-map-marker-alt"></i> Orlando, FL</p>
+                  <p><i class="fab fa-github"></i> <a href="https://github.com/cirillojon">github.com/cirillojon</a></p>
+                  <p><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/jonathan-cirillo/">linkedin.com/in/jonathan-cirillo/</a></p>
+                  <p><i class="fas fa-file-download"></i> <a href="images/Resume.pdf" download>Download Resume</a></p>
+               </div>
+            </div>
+         </div>
+         <!-- Header -->
+         <header id="header">
+            <div class="content">
+               <div class="inner">
+                  <h1>About me</h1>
+               </div>
+            </div>
+            <nav>
+               <ul class="row1">
+                  <li><a href="#WorkExperience">Work Experience</a></li>
+                  <li><a href="#Projects">Projects</a></li>
+                  <li><a href="#Education">Education & Skills</a></li>
+                  <li><a href="#sandbox"> Sandbox</a></li>
+               </ul>
+            </nav>
+         </header>
+         <!-- Main -->
+         <div id="main">
+            <!-- Work Experience -->
+            <article id="WorkExperience">
+               <h2 class="major">F5 Networks</h2>
+               <span class="image main"><img src="images/F5.png" alt="" /></span>
+               <p><strong>Software Engineer</strong><br>
+                  Starting in Aug 2023 | Seattle, WA<br>
+                  <a href="https://www.f5.com/">Link to company</a>
+               </p>
+               <h2 class="major">VS&Co.</h2>
+               <span class="image main"><img src="images/VS.png" alt="" /></span>
+               <p>
+                  <strong>Credit/Payments Applications Developer Intern</strong><br />
+                  Aug 2022 – Aug 2023 | Remote<br />
+               <ul>
+                  <li>A part of team responsible for investigating 100% of software issues affecting store registers & pin-pads.</li>
+                  <li>Employ PowerShell scripts to process logs & investigate root causes of bugs affecting millions of customers.</li>
+                  <li>Identified a malfunctioning API in production impacting card applicants, prompting fixes sent to all stores.</li>
+                  <li>Discovered issue with firewall implementation causing thousands of transactions to not reach cloud database.</li>
+               </ul>
+               <strong>Application and Software Engineer/Developer Intern</strong><br />
+               May 2022 – Aug 2022 | Remote<br />
+               <ul>
+                  <li>Contributed to application development, testing, and support for Merchandise Planning & Allocation team.</li>
+                  <li>Assisted in developing an efficient C# application to improve & replace a slow and error-prone planning app.</li>
+                  <li>Generated data in MSSQL for comprehensive QA testing & leveraged SwaggerHub to validate various APIs.</li>
+                  <li>Presented contributions to company leadership & proposed method to integrate machine learning in MP&A.</li>
+               </ul>
+               <p> <a href="https://www.victoriassecret.com/">Link to Company</a></p>
+               <h2 class="major">Informa Software</h2>
+               <span class="image main"><img src="images/informa.jpeg" alt="" /></span>
+               <p><strong>Software Engineer Intern</strong><br>
+                  Jan 2022 – May 2022 | Maitland, FL
+               </p>
+               <ul>
+                  <li>Developed intuitive forms & business solutions for companies in diverse industries using JavaScript and C#.</li>
+                  <li>Conducted research into cloud-based application hosting to reduce company’s existing hosting costs by 35%.</li>
+                  <li>Produced comprehensive technical documentation, & facilitated multiple meetings to demonstrate findings.</li>
+               </ul>
+               <p><a href="https://www.informasoftware.com/">Link to company</a></p>
+            </article>
+            <!-- Projects -->
+            <article id="Projects">
+               <h2 class="major">CuttingBoard</h2>
+               <span class="image main"><img src="images/CB.jpg" alt="" /></span>
+               <p><strong>Augmented Reality Cooking Simulator (Cutting Board) | 2023 </strong></p>
+               <p>Tools & Technologies: Unity, C#, Firebase, Figma, SpoonacularAPI</p>
+               <ul>
+                  <li>Member of startup.</li>
+                  <li>Part of pitching team for UCF Joust Competition for Student Entrepreneurs. </li>
+                  <li>Currently working as backend developer, responsible for API and database integration.</li>
+                  <li>Developed API calls to fetch recipe information, seamlessly integrating data into the application.</li>
+                  <li>Integrated Firebase with Unity, using cloud-storage to securely host 3D assets and user account information.</li>
+                  <li>Implemented GLTFUtility plugin to instantiate 3D models into Unity app during runtime from cloud-storage.</li>
+               </ul>
+               <p><strong>Link to website:</strong> <a href="https://arcuttingboard.com/">arcuttingboard.com</a></p>
+               <h2 class="major">Parallel ChessAI</h2>
+               <span class="image main"><img src="images/chess.jpg" alt="" /></span>
+               <p><strong> Java Chess Engine & Multi-threaded AI | 2023</strong><br />
+                  <br/>
+                  • Developed a robust Java-based chess engine with a multi-threaded AI using alpha-beta-pruning.<br />
+                  • Conducted research & presented results detailing runtime improvements made by parallelizing alpha-beta.
+               </p>
+               <p><strong>Link to GitHub repository:</strong> <a href="https://github.com/cirillojon/ChessAI">https://github.com/cirillojon/ChessAI</a></p>
+               <p><strong>Link to Paper:</strong> <a href="images/Final-Paper.pdf">Multi-threaded Chess AI</a></p>
+               <h2 class="major">Trendify</h2>
+               <span class="image main"><img src="images/trendify.png" alt="" /></span>
+               <p><strong>Spotify Web/Mobile Application | 2022</strong> </p>
+               <p>Tools & Technologies: MongoDB, Express, React, and Node.js, Jest, React Native, Android Studio, Expo, Lucidchart, and Heroku </p>
+               <ul>
+                  <li>Led development of a Spotify web and mobile application called ‘Trendify’ that allowed users to connect their account and view in-depth listening data & track information.</li>
+                  <li>Utilized Spotify’s API to fetch data and implemented a secure user login system.</li>
+               </ul>
+               <p><strong>Link to project:</strong> <a href="https://trendify-project.herokuapp.com/login">https://trendify-project.herokuapp.com/login</a></p>
+               <p><strong>Link to GitHub repository:</strong> <a href="https://github.com/cirillojon/Trendify-App">https://github.com/cirillojon/Trendify-App</a></p>
+               <h2 class="major">Professor Contacts</h2>
+               <span class="image main"><img src="images/Professor.png" alt="" /></span>
+               <p><strong>LAMP Stack Contact Manager | 2022</strong> </p>
+               <p>Tools & Technologies: Linux, Apache, MySQL, PHP, JavaScript, HTML, and CSS </p>
+               <ul>
+                  <li>Led development of contact-manager web application. </li>
+                  <li>Users can create, update, delete and view all their contacts. 
+                  <li>Implemented password hashing and lazy-loading</li>
+               </ul>
+               <p><strong>Link to project:</strong> <a href="http://www.professorcontacts.com/">http://www.professorcontacts.com/</a></p>
+               <p><strong>Link to GitHub repository:</strong> <a href="https://github.com/cirillojon/Professor-Contacts">https://github.com/cirillojon/Professor-Contacts</a></p>
+            </article>
+            <!-- Education & Skills -->
+            <article id="Education">
+               <h2 class="major">My Education</h2>
+               <span class="image main"><img src="images/ucf.png" alt="" /></span>
+               <p>
+                  <strong>University of Central Florida | B.S. in Computer Science</strong><br />
+                  Expected Graduation July 2023 | Orlando, FL<br />
+                  <a href="https://www.ucf.edu/">Link to university</a> <br />
+                  <br/>
+                  <strong>Relevant Coursework:</strong>
+               <ul>
+                  <li>Parallel Computing (Java, Rust, C++) </li>
+                  <li>Robot Vision (C, C++, Python) </li>
+                  <li>Algorithms for Machine Learning (Python)</li>
+                  <li>Matrix and Linear Algebra </li>
+                  <li>Object Oriented Programming (Java) </li>
+                  <li>Object Oriented Software Development (JavaScript)</li>
+                  <li>Programming Languages (Haskell, JavaScript, C++, C#) </li>
+                  <li>Intro to C Programming </li>
+                  <li>Computer Logic and Organization (C)</li>
+                  <li>Operating System Architecture (C)</li>
+                  <li>Security in Computing (Java, C) </li>
+                  <li>Topics in Cybersecurity </li>
+                  <li>Technical Writing </li>
+                  <li>UI/UX for Web Applications (HTML, CSS, JavaScript)</li>
+                  <li>Computer Science 1 (Data Structures) (C)</li>
+                  <li>Computer Science 2 (Algorithms) (Java)</li>
+                  <li>Discrete Structures 1 </li>
+                  <li>Discrete Structures 2 </li>
+                  <li>Senior Design 1 </li>
+                  <li>Senior Design 2 </li>
+               </ul>
+               <strong>Rock Climbing Tower Attendant</strong><br />
+               Dec 2021 - July 2023 <br />
+               <ul>
+                  <li>Tasked with belaying students using the rock wall at the UCF Recreation and Wellness Center, ensuring a fun, safe, and inclusive environment.</li>
+                  <li>Responsible for checking out equipment and maintaining inventory.</li>
+                  <li>Required to be CPR, AED, and First Aid certified by the American Red Cross.</li>
+               </ul>
+               <strong>Extra-curriculars:</strong> <br />
+               <ul>
+                  <li>Rock Climbing Club</li>
+                  <li>UCF Chess Club</li>
+               </ul>
+               </p>
+               <h2 class="major">Technical Skills</h2>
+               <p><strong>Programming Languages:</strong>
+                  <a href="https://www.java.com/">Java</a> • 
+                  <a href="https://docs.microsoft.com/en-us/dotnet/csharp/">C#</a> • 
+                  C • 
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> • 
+                  <a href="https://www.python.org/">Python</a> • 
+                  <a href="https://www.sqltutorial.org/">SQL</a> • 
+                  <a href="https://www.latex-project.org/">LaTeX</a>
+               </p>
+               <p><strong>Data Management & Tools:</strong>
+                  <a href="https://www.mongodb.com/">MongoDB</a> • 
+                  <a href="https://firebase.google.com/">Firebase</a> • 
+                  <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">MSSQL</a> • 
+                  <a href="https://www.mysql.com/">MySQL</a> • 
+                  <a href="https://azure.microsoft.com/">Azure</a> • 
+                  <a href="https://github.com/">GitHub</a> • 
+                  <a href="https://www.atlassian.com/software/jira">Jira</a> • 
+                  <a href="https://bitbucket.org/">Bitbucket</a>
+               </p>
+               <p><strong>Libraries, Frameworks, & IDEs:</strong> 
+                  <a href="https://reactjs.org/">React.js</a> • 
+                  <a href="https://nodejs.org/en/">Node.js</a> • 
+                  <a href="https://pandas.pydata.org/">Pandas</a> • 
+                  <a href="https://keras.io/">Keras</a> • 
+                  <a href="https://dotnet.microsoft.com/">.NET</a> • 
+                  <a href="https://unity.com/">Unity</a> • 
+                  <a href="https://code.visualstudio.com/">VS Code</a> • 
+                  <a href="https://www.jetbrains.com/idea/">IntelliJ</a>
+               </p>
+            </article>
+            <!-- sandbox -->
+            <article id="sandbox">
+               <h2 class="major">Sandbox</h2>
+               <!-- Weather -->
+               <h2 class="major">Weather</h2>
+               <div id="weather-info" class="widget">
+                  <h4 id="city-name"></h4>
+                  <p id="temperature"></p>
+                  <p id="description"></p>
+                  <input type="text" id="city-input" placeholder="Enter a city" style="margin-bottom: 2rem;"> 
+                  <button id="fetch-weather-btn">Fetch Weather</button>
+               </div>
+               <!-- Spotify Playlist -->
+               <h2 class="major">Playlist</h2>
+               <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1NnqtTmlBt1ziKcpg8DyAF?utm_source=generator" 
+                  width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; 
+                  clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+               <!-- Chess Puzzle -->
+               <h2 class="major">Chess Puzzle</h2>
+               <div id="csoDpCon"> class ="widget"</div>
+               <script type="text/javascript" src="https://www.chessstrategyonline.com/js/widgets.min.js"></script>
+               <script type="text/javascript">
+                  csoDailyPuzzle({
+                     boardStyle: "default",
+                  pieceStyle: "uscf",
+                  showCoordinates: true,
+                  width: 420
+                  });
+               </script>
+               <style>
+               /* Set the default width and height */
+               iframe {
+                  width: 400px;
+                  height: 444px;
+               }
+               /* Use media queries to adjust the width and height for different screen sizes */
+               @media screen and (max-width: 768px) {
+                  iframe {
+                     width: 100%;
+                     height: 300px;
+                  }
+               }
+               @media screen and (max-width: 480px) {
+                  iframe {
+                     width: 100%;
+                     height: 200px;
+                  }
+               }
+               </style>
+               <!-- Live Chess -->
+               <h2 class="major">Live Chess</h2>
+               <iframe src="https://lichess.org/tv/frame?theme=brown&bg=dark" style="width: 400px; height: 444px;" allowtransparency="true" frameborder="0"></iframe>
+
+               <!-- Trivia -->
+               <div class="trivia-widget">
+                  <h2 class="major">Trivia</h2>
+                  <button id="view-quiz-btn">View Quiz</button>
+                  <button id="hide-quiz-btn" style="display: none;">Hide Quiz</button>
+                  <div id="quiz-container" class="quiz-container" style="display: none;"></div>
+                  <div id="score-display"></div>
+               </div>
+               <!-- Joke -->
+               <h2 class="major">Random Joke</h2>
+               <div id="joke-widget" class="widget">
+                  <h3 id="joke-title">Random Joke</h3>
+                  <p id="joke-content">Click the button below to get a random joke!</p>
+                  <button id="fetch-joke-btn">Fetch Joke</button>
+               </div>
+
+               <!-- ChatBot -->
+               <h2 class="major">Chat bot</h2>
+               <div class="chat-widget">
+                  <div class="chat-messages" id="chat-messages"></div>
+                  <form class="chat-input-form" id="chat-input-form">
+                    <input type="text" id="user-message" placeholder="Type your message...">
+                    <button type="submit">Send</button>
+                  </form>
+                </div>
+                
+            </article>
+            <!-- Contact Me -->
+            <article id="Contact">
+               <section>
+                  <h3 class="major">Contact Me</h3>
+                  <form method="post" action="#">
+                     <div class="fields">
+                        <div class="field half">
+                           <label for="demo-name">Name</label>
+                           <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+                        </div>
+                        <div class="field half">
+                           <label for="demo-email">Email</label>
+                           <input type="email" name="demo-email" id="demo-email" value="" placeholder="email@untitled.tld" />
+                        </div>
+                        <div class="field">
+                           <label for="demo-category">Category</label>
+                           <select name="demo-category" id="demo-category">
+                              <option value="">-</option>
+                              <option value="1">Friend</option>
+                              <option value="1">Work</option>
+                              <option value="1">Opportunity</option>
+                              <option value="1">Other</option>
+                           </select>
+                        </div>
+                        <div class="field half">
+                           <input type="radio" id="demo-priority-low" name="demo-priority" checked>
+                           <label for="demo-priority-low">Low Priority</label>
+                        </div>
+                        <div class="field half">
+                           <input type="radio" id="demo-priority-high" name="demo-priority">
+                           <label for="demo-priority-high">High Priority</label>
+                        </div>
+                        <div class="field">
+                           <label for="demo-message">Message</label>
+                           <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+                        </div>
+                     </div>
+                     <ul class="actions">
+                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                        <li><input type="reset" value="Reset" /></li>
+                     </ul>
+                  </form>
+               </section>
+            </article>
+         </div>
+         <!-- Footer -->
+         <footer id="footer">
+            <p class="copyright">&copy; Jonathan Cirillo 2023. <a href="#Contact">Contact Me</a>.</p>
+         </footer>
+      </div>
+      <!-- BG -->
+      <div id="bg"></div>
+      <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/weather.js"></script>
+      <script src="assets/js/fetchJoke.js"></script>
+      <script src="assets/js/quiz.js"></script>
+      <script src="assets/js/chat.js"></script>
+   </body>
+</html>
