@@ -6,7 +6,7 @@ async function loadImageGallery() {
       imageURLs.forEach((url) => {
         const img = document.createElement('img');
         img.src = url;
-        img.alt = 'Gallery image';
+        img.alt = ''; 
         img.className = 'gallery-image';
         imageGallery.appendChild(img);
       });
