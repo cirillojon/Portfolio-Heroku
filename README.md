@@ -14,6 +14,8 @@ Project continued from 'Portfolio' repo that originally was hosted statically on
 
 4. **ChatGPT Chatbot**: Interact with an AI-powered chatbot using the [OpenAI API](https://beta.openai.com/docs/).
 
+5. **3D Rotating Cube**: Rotating 3D cube on the landing page, created using [Three.js](https://threejs.org/).
+
 ## Technologies Used
 
 - HTML5
@@ -22,3 +24,4 @@ Project continued from 'Portfolio' repo that originally was hosted statically on
 - Node.js
 - Express
 - Firebase
+- Three.js
