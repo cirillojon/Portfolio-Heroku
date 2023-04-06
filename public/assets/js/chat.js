@@ -14,7 +14,7 @@ chatInputForm.addEventListener("submit", async (event) => {
   const gptResponse = await getGptResponse(userMessage);
 
   // Display ChatGPT response
-  chatMessages.innerHTML += `<p><strong>ChatGPT:</strong> ${gptResponse}</p>`;
+  chatMessages.innerHTML += `<p><strong>Jon's Subconscious:</strong> ${gptResponse}</p>`;
   chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
