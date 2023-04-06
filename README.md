@@ -2,6 +2,8 @@
 
 Link to website: https://cirillojon.herokuapp.com/
 
+Project continued from 'Portfolio' repo that originally was hosted statically on github pages.
+
 ## Some random features: (see sandbox tab to try out)
 
 1. **Weather Fetcher**: Get the current weather for any city using the [OpenWeatherMap API](https://openweathermap.org/api).
