@@ -2,8 +2,6 @@
 
 Link to website: https://cirillojon.herokuapp.com/
 
-The server is built using Node.js and Express, and the data is hosted on Firebase Storage. 
-
 ## Some random features: (see sandbox tab to try out)
 
 1. **Weather Fetcher**: Get the current weather for any city using the [OpenWeatherMap API](https://openweathermap.org/api).
