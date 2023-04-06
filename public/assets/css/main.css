@@ -29,6 +29,173 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
+
+	/*Added by Jon*/
+	#threejs-container {	
+	background-color: transparent;
+	position: relative;
+	z-index: 0;
+	}
+	.container {
+	padding: 1.5em 0;
+	}
+	body {
+	font-family: 'Roboto', sans-serif;
+	}
+	h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+	}
+	p {
+	line-height: 1.6;
+	}
+	a:hover {
+	color: #ff6e6c;
+	text-decoration: underline;
+	}
+	nav ul {
+	display: flex;
+	justify-content: space-around;
+	padding: 0;
+	list-style-type: none;
+	}
+	nav ul li a {
+	/* padding: 0.5em 1em; */
+	/* background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+	text-decoration: none; */
+	transition: all 0.3s;
+	}
+	nav ul li a:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+	}
+	.image.main {
+	border-radius: 4px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+	h2.major {
+	word-break: break-word;
+	}
+	.widget {
+	background-color: #777777;
+	border-radius: 5px;
+	padding: 1rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	margin-bottom: 1.5rem;
+	text-align: center;
+	}
+	#city-name,
+	#joke-title {
+	margin-bottom: 0.5rem;
+	}
+	#temperature,
+	#joke-content {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	}
+	#description {
+	text-transform: capitalize;
+	}
+	#footer {
+	padding: 1em 0;
+	background-color: rgba(0, 0, 0, 0.1);
+	text-align: center;
+	}
+	.quiz-container {
+	margin-bottom: 1.5rem;
+	}
+	.question {
+	margin-bottom: 1.5rem;
+	}
+	.answer-option {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 18px;
+	user-select: none;
+	}
+	.answer-option input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	}
+	.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 50%;
+	}
+	.answer-option:hover input ~ .checkmark {
+	background-color: #ccc;
+	}
+	.answer-option input:checked ~ .checkmark {
+	background-color: #2196F3;
+	}
+	.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+	}
+	.answer-option input:checked ~ .checkmark:after {
+	display: block;
+	}
+	.checkmark:after {
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+	}
+	.trivia-widget {
+	margin-bottom: 2rem;
+	}
+
+	.chat-widget {
+	width: 300px;
+	height: 500px;
+	border: 1px solid #ccc;
+	display: flex;
+	flex-direction: column;
+	}
+
+	.chat-messages {
+	flex-grow: 1;
+	overflow-y: auto;
+	padding: 1rem;
+	}
+
+	.chat-input-form {
+	display: flex;
+	border-top: 1px solid #ccc;
+	}
+
+	#user-message {
+	flex-grow: 1;
+	border: none;
+	padding: 0.5rem;
+	}
+	.gallery-image {
+	width: 100%;
+	max-width: 300px;
+	height: auto;
+	margin: 10px;
+	object-fit: cover;
+	display: block;
+	/* border: 1px solid red; */
+	background-color: rgba(0, 0, 0, 0.1); /* Add a background color to check for invisible images */
+	}
+
+	#image-gallery {
+	overflow: auto;
+	}
+	/* End of added by Jon*/
+
 body {
 	line-height: 1;
 }
