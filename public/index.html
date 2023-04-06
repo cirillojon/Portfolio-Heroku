@@ -16,12 +16,11 @@
       <style>
          /* Moved to most to main.css for now */
          .links-container {
-            display: none;
-        }
-        
-        .links-container.visible {
-            display: block;
-        }
+         display: none;
+         }
+         .links-container.visible {
+         display: block;
+         }
       </style>
       <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
    </head>
@@ -30,33 +29,33 @@
       <div id="wrapper">
          <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <h1>Jonathan Cirillo</h1>
-                    <h2>Software Engineer</h2>
-                </div>
-                <div class="col-md-4 text-right">
-                    <button id="toggleLinksBtn">My links: </button>
-                    <div class="links-container" id="linksContainer">
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:jonathancirillo@outlook.com">jonathancirillo@outlook.com</a></p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:4077181174">407.718.1174</a></p>
-                        <p><i class="fas fa-map-marker-alt"></i> Orlando, FL</p>
-                        <p><i class="fab fa-github"></i> <a href="https://github.com/cirillojon">github.com/cirillojon</a></p>
-                        <p><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/jonathan-cirillo/">linkedin.com/in/jonathan-cirillo/</a></p>
-                        <p><i class="fas fa-file-download"></i> <a href="images/Resume.pdf" download>Download Resume</a></p>
-                    </div>
-                </div>
+               <div class="col-md-8">
+                  <h1>Jonathan Cirillo</h1>
+                  <h2>Software Engineer</h2>
+               </div>
+               <div class="col-md-4 text-right">
+                  <button id="toggleLinksBtn">My links: </button>
+                  <div class="links-container" id="linksContainer">
+                     <p><i class="fas fa-envelope"></i> <a href="mailto:jonathancirillo@outlook.com">jonathancirillo@outlook.com</a></p>
+                     <p><i class="fas fa-phone"></i> <a href="tel:4077181174">407.718.1174</a></p>
+                     <p><i class="fas fa-map-marker-alt"></i> Orlando, FL</p>
+                     <p><i class="fab fa-github"></i> <a href="https://github.com/cirillojon">github.com/cirillojon</a></p>
+                     <p><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/jonathan-cirillo/">linkedin.com/in/jonathan-cirillo/</a></p>
+                     <p><i class="fas fa-file-download"></i> <a href="images/Resume.pdf" download>Download Resume</a></p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <script>
+         </div>
+         <script>
             // JavaScript for toggling links
             const toggleLinksBtn = document.getElementById('toggleLinksBtn');
             const linksContainer = document.getElementById('linksContainer');
-    
+            
             toggleLinksBtn.addEventListener('click', () => {
                 linksContainer.classList.toggle('visible');
             });
-        </script>
-      <div id="threejs-container"></div>
+         </script>
+         <div id="threejs-container"></div>
          <!-- Header -->
          <header id="header">
             <div class="content">
@@ -268,29 +267,28 @@
                   });
                </script>
                <style>
-               /* Set the default width and height */
-               iframe {
+                  /* Set the default width and height */
+                  iframe {
                   width: 400px;
                   height: 444px;
-               }
-               /* Use media queries to adjust the width and height for different screen sizes */
-               @media screen and (max-width: 768px) {
-                  iframe {
-                     width: 100%;
-                     height: 300px;
                   }
-               }
-               @media screen and (max-width: 480px) {
+                  /* Use media queries to adjust the width and height for different screen sizes */
+                  @media screen and (max-width: 768px) {
                   iframe {
-                     width: 100%;
-                     height: 200px;
+                  width: 100%;
+                  height: 300px;
                   }
-               }
+                  }
+                  @media screen and (max-width: 480px) {
+                  iframe {
+                  width: 100%;
+                  height: 200px;
+                  }
+                  }
                </style>
                <!-- Live Chess -->
                <h2 class="major">Live Chess</h2>
                <iframe src="https://lichess.org/tv/frame?theme=brown&bg=dark" style="width: 400px; height: 444px;" allowtransparency="true" frameborder="0"></iframe>
-
                <!-- Trivia -->
                <div class="trivia-widget">
                   <h2 class="major">Trivia</h2>
@@ -306,25 +304,21 @@
                   <p id="joke-content">Click the button below to get a random joke!</p>
                   <button id="fetch-joke-btn">Fetch Joke</button>
                </div>
-
                <!-- ChatBot -->
                <h2 class="major">Chat bot</h2>
                <div class="chat-widget">
                   <div class="chat-messages" id="chat-messages"></div>
                   <form class="chat-input-form" id="chat-input-form">
-                    <input type="text" id="user-message" placeholder="Type your message...">
-                    <button type="submit">Send</button>
+                     <input type="text" id="user-message" placeholder="Type your message...">
+                     <button type="submit">Send</button>
                   </form>
-                </div>
+               </div>
             </article>
-
             <!-- Photography -->
             <article id="Photography">
                <h2 class="major">Photography</h2>
                <div id="image-gallery"></div>
             </article>
-
-
             <!-- Contact Me -->
             <article id="Contact">
                <section>
