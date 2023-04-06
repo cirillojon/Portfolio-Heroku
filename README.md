@@ -8,7 +8,9 @@ Link to website: https://cirillojon.herokuapp.com/
 
 2. **Trivia Game**: Test your knowledge with a trivia game powered by the [OpenTDB API](https://opentdb.com/api_config.php).
 
-3. **ChatGPT Chatbot**: Interact with an AI-powered chatbot using the [OpenAI API](https://beta.openai.com/docs/).
+3. **Random Joke**: Enjoy a random joke fetched from the [JokeAPI](https://jokeapi.dev/) using their REST API.
+
+4. **ChatGPT Chatbot**: Interact with an AI-powered chatbot using the [OpenAI API](https://beta.openai.com/docs/).
 
 ## Technologies Used
 
