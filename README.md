@@ -18,10 +18,11 @@ Project continued from 'Portfolio' repo that originally was hosted statically on
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript
-- Node.js
-- Express
-- Firebase
-- Three.js
+- HTML5 (Website Design)
+- CSS3+SCSS (Website Design)
+- JavaScript (Client/Server Functionality, APIs)
+- Node.js (Server)
+- Express (Server)
+- Firebase (Storage)
+- Three.js (Animations)
+- Heroku (Hosting)
