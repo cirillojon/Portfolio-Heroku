@@ -56,6 +56,20 @@ const pointLight = new THREE.PointLight(0xff0000, 1, 50);
 pointLight.position.set(10, 0, 0);
 scene.add(pointLight);
 
+// Add another torus that orbits around the first torus
+const orbitingTorusGeometry = new THREE.TorusGeometry(1, 0.4, 8, 50);
+const orbitingTorus = new THREE.Mesh(orbitingTorusGeometry, torusMaterial);
+scene.add(orbitingTorus);
+
+// Function to change the color of the point light over time
+function updatePointLightColor() {
+  const time = Date.now() * 0.001;
+  const r = Math.sin(time * 0.8) * 0.5 + 0.5;
+  const g = Math.sin(time * 1.2) * 0.5 + 0.5;
+  const b = Math.sin(time * 0.5) * 0.5 + 0.5;
+  pointLight.color.setRGB(r, g, b);
+}
+
 // Set the camera position
 camera.position.z = 20;
 
@@ -68,6 +82,15 @@ function animate() {
   cube.rotation.y += 0.025;
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.02;
+
+  // Rotate and orbit the orbiting torus
+  orbitingTorus.rotation.x += 0.1;
+  orbitingTorus.rotation.y += 0.2;
+  orbitingTorus.position.x = 5 * Math.sin(Date.now() * 0.002);
+  orbitingTorus.position.z = 5 * Math.cos(Date.now() * 0.002);
+
+  // Update the point light color
+  updatePointLightColor();
 
   renderer.render(scene, camera);
 }
