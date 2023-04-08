@@ -35,6 +35,7 @@ footer, header, hgroup, menu, nav, section {
 	background-color: transparent;
 	position: relative;
 	z-index: 0;
+	pointer-events: none;
 	}
 	.container {
 	padding: 1.5em 0;
