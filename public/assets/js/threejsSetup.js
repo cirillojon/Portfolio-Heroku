@@ -1,8 +1,8 @@
 // Set up the scene, camera, and renderer
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 300);
+const camera = new THREE.PerspectiveCamera(50, (window.innerWidth / 1.2) / window.innerHeight, 0.1, 300);
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth / 4, window.innerHeight / 4);
+renderer.setSize(window.innerWidth / 4 * 1.2, window.innerHeight / 4 * 1.2);
 const container = document.getElementById("threejs-container");
 container.style.background = "transparent"; // Set container's background to transparent
 container.appendChild(renderer.domElement);
@@ -46,6 +46,11 @@ const torusMaterial = new THREE.ShaderMaterial({
 const torus = new THREE.Mesh(torusGeometry, torusMaterial);
 scene.add(torus);
 
+// Add another torus that orbits around the first torus
+const orbitingTorusGeometry = new THREE.TorusGeometry(1, 0.4, 8, 50);
+const orbitingTorus = new THREE.Mesh(orbitingTorusGeometry, torusMaterial);
+scene.add(orbitingTorus);
+
 // Add lighting to the scene
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
@@ -56,10 +61,8 @@ const pointLight = new THREE.PointLight(0xff0000, 1, 50);
 pointLight.position.set(10, 0, 0);
 scene.add(pointLight);
 
-// Add another torus that orbits around the first torus
-const orbitingTorusGeometry = new THREE.TorusGeometry(1, 0.4, 8, 50);
-const orbitingTorus = new THREE.Mesh(orbitingTorusGeometry, torusMaterial);
-scene.add(orbitingTorus);
+// Set the camera position
+camera.position.z = 20;
 
 // Function to change the color of the point light over time
 function updatePointLightColor() {
@@ -70,8 +73,16 @@ function updatePointLightColor() {
   pointLight.color.setRGB(r, g, b);
 }
 
-// Set the camera position
-camera.position.z = 20;
+// Function to handle window resizing
+function onWindowResize() {
+  const aspectRatio = (window.innerWidth / 1.2) / window.innerHeight;
+  camera.aspect = aspectRatio;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth / 4 * 1.2, window.innerHeight / 4 * 1.2);
+}
+
+// Add the event listener for window resizing
+window.addEventListener('resize', onWindowResize, false);
 
 // Create the animation loop
 function animate() {
