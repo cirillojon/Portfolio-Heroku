@@ -1,8 +1,8 @@
 // Set up the scene, camera, and renderer
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(50, (window.innerWidth / 1.5) / window.innerHeight, 0.1, 300);
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 300);
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth / 4 * 2.5, window.innerHeight / 4 * 1.7);
+renderer.setSize(window.innerWidth / 4, window.innerHeight / 4);
 const container = document.getElementById("threejs-container");
 container.style.background = "transparent"; // Set container's background to transparent
 container.appendChild(renderer.domElement);
@@ -46,11 +46,6 @@ const torusMaterial = new THREE.ShaderMaterial({
 const torus = new THREE.Mesh(torusGeometry, torusMaterial);
 scene.add(torus);
 
-// Add another torus that orbits around the first torus
-const orbitingTorusGeometry = new THREE.TorusGeometry(1, 0.4, 8, 50);
-const orbitingTorus = new THREE.Mesh(orbitingTorusGeometry, torusMaterial);
-scene.add(orbitingTorus);
-
 // Add lighting to the scene
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
@@ -64,27 +59,6 @@ scene.add(pointLight);
 // Set the camera position
 camera.position.z = 20;
 
-// Function to change the color of the point light over time
-function updatePointLightColor() {
-  const time = Date.now() * 0.001;
-  const r = Math.sin(time * 0.8) * 0.5 + 0.5;
-  const g = Math.sin(time * 1.2) * 0.5 + 0.5;
-  const b = Math.sin(time * 0.5) * 0.5 + 0.5;
-  pointLight.color.setRGB(r, g, b);
-}
-
-// Function to handle window resizing
-function onWindowResize() {
-  const aspectRatio = (window.innerWidth / 1.5) / window.innerHeight;
-  camera.aspect = aspectRatio;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth / 4 * 1.5, window.innerHeight / 4 * 1.2);
-}
-
-
-// Add the event listener for window resizing
-window.addEventListener('resize', onWindowResize, false);
-
 // Create the animation loop
 function animate() {
   requestAnimationFrame(animate);
@@ -94,15 +68,6 @@ function animate() {
   cube.rotation.y += 0.025;
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.02;
-
-  // Rotate and orbit the orbiting torus
-  orbitingTorus.rotation.x += 0.1;
-  orbitingTorus.rotation.y += 0.2;
-  orbitingTorus.position.x = 5 * Math.sin(Date.now() * 0.002);
-  orbitingTorus.position.z = 5 * Math.cos(Date.now() * 0.002);
-
-  // Update the point light color
-  updatePointLightColor();
 
   renderer.render(scene, camera);
 }
