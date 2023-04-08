@@ -14,7 +14,9 @@ Project continued from 'Portfolio' repo that originally was hosted statically on
 
 4. **ChatGPT Chatbot**: Interact with an AI-powered chatbot using the [OpenAI API](https://beta.openai.com/docs/).
 
-5. **Three.js**: Rotating 3D cube on the landing page, created using [Three.js](https://threejs.org/).
+5. **NASA Astronomy Picture of the Day: Discover NASA's featured image of the day using their [APOD API](https://api.nasa.gov/#apod).
+
+6. **Three.js**: Rotating 3D cube & torus on the landing page, created using [Three.js](https://threejs.org/).
 
 ## Technologies Used
 
@@ -26,3 +28,4 @@ Project continued from 'Portfolio' repo that originally was hosted statically on
 - Firebase (Storage)
 - Three.js (Animations)
 - Heroku (Hosting)
+
