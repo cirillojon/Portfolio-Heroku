@@ -4,7 +4,8 @@
   "description": "Personal Website",
   "main": "index.js",
   "scripts": {
-    "test": "run"
+    "test": "run",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
