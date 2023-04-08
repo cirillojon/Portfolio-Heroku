@@ -18,6 +18,8 @@ Project continued from 'Portfolio' repo that originally was hosted statically on
 
 6. **Three.js**: Rotating 3D cube & torus on the landing page, created using [Three.js](https://threejs.org/).
 
+7. **Useless Facts**: Get random or today's useless fact using the [Useless Facts API](https://uselessfacts.jsph.pl/).
+
 ## Technologies Used
 
 - HTML5 (Website Design)
