@@ -7,6 +7,11 @@ const container = document.getElementById("threejs-container");
 container.style.background = "transparent"; // Set container's background to transparent
 container.appendChild(renderer.domElement);
 
+// Event listeners
+container.addEventListener('mousemove', onMouseMove, false);
+container.addEventListener('touchmove', onTouchMove, false);
+window.addEventListener('resize', onWindowResize, false);
+
 // Create the cube with different materials
 const materials = [
   new THREE.MeshPhongMaterial({ color: 0xff0000 }), // red
@@ -59,16 +64,44 @@ scene.add(pointLight);
 // Set the camera position
 camera.position.z = 20;
 
-// Create the animation loop
+// Mouse move event handler
+function onMouseMove(event) {
+  const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+  const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  updateRotationAndLight(mouseX, mouseY);
+}
+
+// Touch move event handler
+function onTouchMove(event) {
+  event.preventDefault(); // Prevent scrolling on touch devices
+  const touch = event.touches[0];
+  const touchX = (touch.clientX / window.innerWidth) * 2 - 1;
+  const touchY = -(touch.clientY / window.innerHeight) * 2 + 1;
+
+  updateRotationAndLight(touchX, touchY);
+}
+
+// Window resize event handler
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth / 4, window.innerHeight / 4);
+}
+
+function updateRotationAndLight(x, y) {
+  cube.rotation.x = y * Math.PI;
+  cube.rotation.y = x * Math.PI;
+  torus.rotation.x = y * Math.PI;
+  torus.rotation.y = x * Math.PI;
+
+  directionalLight.position.set(x * 10, y * 10, 1);
+}
+
 function animate() {
   requestAnimationFrame(animate);
 
-  // Rotate the cube, torus
-  cube.rotation.x += 0.025;
-  cube.rotation.y += 0.025;
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.02;
-
+  // Render the scene
   renderer.render(scene, camera);
 }
 
