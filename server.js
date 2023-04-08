@@ -40,7 +40,7 @@ app.use(express.json());
 // Get the API key from environment variables
 const apiKey = process.env.API_KEY;
 
-console.log(`Loaded API key: ${apiKey}`);
+//console.log(`Loaded API key: ${apiKey}`);
 
 // API route for chat
 app.post('/api/chat', async (req, res) => {
