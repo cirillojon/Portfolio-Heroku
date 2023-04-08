@@ -1,8 +1,8 @@
 // Set up the scene, camera, and renderer
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(50, (window.innerWidth / 1.2) / window.innerHeight, 0.1, 300);
+const camera = new THREE.PerspectiveCamera(50, (window.innerWidth / 1.5) / window.innerHeight, 0.1, 300);
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth / 4 * 1.2, window.innerHeight / 4 * 1.2);
+renderer.setSize(window.innerWidth / 4 * 1.5, window.innerHeight / 4 * 1.2);
 const container = document.getElementById("threejs-container");
 container.style.background = "transparent"; // Set container's background to transparent
 container.appendChild(renderer.domElement);
@@ -75,11 +75,12 @@ function updatePointLightColor() {
 
 // Function to handle window resizing
 function onWindowResize() {
-  const aspectRatio = (window.innerWidth / 1.2) / window.innerHeight;
+  const aspectRatio = (window.innerWidth / 1.5) / window.innerHeight;
   camera.aspect = aspectRatio;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth / 4 * 1.2, window.innerHeight / 4 * 1.2);
+  renderer.setSize(window.innerWidth / 4 * 1.5, window.innerHeight / 4 * 1.2);
 }
+
 
 // Add the event listener for window resizing
 window.addEventListener('resize', onWindowResize, false);
