@@ -329,28 +329,32 @@
                   });
                </script>
                <style>
-                  /* Set the default width and height */
-                  iframe {
+               /* Set the default width and height for the Live Chess widget */
+               .live-chess-widget iframe {
                   width: 400px;
                   height: 444px;
+               }
+
+               /* Use media queries to adjust the width and height for different screen sizes */
+               @media screen and (max-width: 768px) {
+                  .live-chess-widget iframe {
+                     width: 100%;
+                     height: 300px;
                   }
-                  /* Use media queries to adjust the width and height for different screen sizes */
-                  @media screen and (max-width: 768px) {
-                  iframe {
-                  width: 100%;
-                  height: 300px;
+               }
+
+               @media screen and (max-width: 480px) {
+                  .live-chess-widget iframe {
+                     width: 100%;
+                     height: 200px;
                   }
-                  }
-                  @media screen and (max-width: 480px) {
-                  iframe {
-                  width: 100%;
-                  height: 200px;
-                  }
-                  }
+               }
                </style>
                <!-- Live Chess -->
                <h2 class="major">Live Chess</h2>
-               <iframe src="https://lichess.org/tv/frame?theme=brown&bg=dark" style="width: 400px; height: 444px;" allowtransparency="true" frameborder="0"></iframe>
+               <div class="live-chess-widget">
+                  <iframe src="https://lichess.org/tv/frame?theme=brown&bg=dark" allowtransparency="true" frameborder="0"></iframe>
+               </div>
                <!-- Trivia -->
                <div class="trivia-widget">
                   <h2 class="major">Trivia</h2>
