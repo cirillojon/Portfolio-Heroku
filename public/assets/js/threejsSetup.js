@@ -2,7 +2,7 @@
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(50, (window.innerWidth / 1.5) / window.innerHeight, 0.1, 300);
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth / 4 * 1.5, window.innerHeight / 4 * 1.2);
+renderer.setSize(window.innerWidth / 4 * 2.5, window.innerHeight / 4 * 1.7);
 const container = document.getElementById("threejs-container");
 container.style.background = "transparent"; // Set container's background to transparent
 container.appendChild(renderer.domElement);
