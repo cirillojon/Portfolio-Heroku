@@ -24,7 +24,6 @@
          .links-list {
          position: absolute;
          }
-
       </style>
       <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
    </head>
@@ -38,14 +37,14 @@
                   <h2>Software Engineer</h2>
                </div>
                <div class="col-md-4 text-right">
-               <button id="toggleLinksBtn">My links: </button>
-               <div class="links-container" id="linksContainer">
-                   <ul class="links-list">
-                       <li><i class="fab fa-github"></i> <a href="https://github.com/cirillojon">github</a></li>
-                       <li><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/jonathan-cirillo/">linkedin</a></li>
-                       <li><i class="fas fa-envelope"></i> <a href="mailto:jonathancirillo@outlook.com">email</a></li>
-                       <li><i class="fas fa-file-download"></i> <a href="images/Resume.pdf" download> resume</a></li>
-                   </ul>
+                  <button id="toggleLinksBtn">My links: </button>
+                  <div class="links-container" id="linksContainer">
+                     <ul class="links-list">
+                        <li><i class="fab fa-github"></i> <a href="https://github.com/cirillojon">github</a></li>
+                        <li><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/jonathan-cirillo/">linkedin</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:jonathancirillo@outlook.com">email</a></li>
+                        <li><i class="fas fa-file-download"></i> <a href="images/Resume.pdf" download> resume</a></li>
+                     </ul>
                   </div>
                </div>
             </div>
@@ -329,31 +328,27 @@
                   });
                </script>
                <style>
-               /* Set the default width and height for the Live Chess widget */
-               .live-chess-widget iframe {
-                  width: 400px;
-                  height: 444px;
-               }
-
-               /* Use media queries to adjust the width and height for different screen sizes */
-               @media screen and (max-width: 768px) {
-                  .live-chess-widget iframe {
-                     width: 100%;
-                     height: 300px;
+                  /* Live Chess widget responsive container */
+                  .responsive-iframe-container {
+                  position: relative;
+                  padding-bottom: 111%; /* Adjust this value to maintain the desired aspect ratio */
+                  height: 0;
+                  overflow: hidden;
                   }
-               }
-
-               @media screen and (max-width: 480px) {
-                  .live-chess-widget iframe {
-                     width: 100%;
-                     height: 200px;
+                  .responsive-iframe-container iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
                   }
-               }
                </style>
                <!-- Live Chess -->
                <h2 class="major">Live Chess</h2>
                <div class="live-chess-widget">
-                  <iframe src="https://lichess.org/tv/frame?theme=brown&bg=dark" allowtransparency="true" frameborder="0"></iframe>
+                  <div class="responsive-iframe-container">
+                     <iframe src="https://lichess.org/tv/frame?theme=brown&bg=dark" allowtransparency="true" frameborder="0"></iframe>
+                  </div>
                </div>
                <!-- Trivia -->
                <div class="trivia-widget">
@@ -387,7 +382,7 @@
             <article id="Photography">
                <h2 class="major">Photography</h2>
                <div id="image-gallery-wrapper">
-               <div id="image-gallery"></div>
+                  <div id="image-gallery"></div>
                </div>
             </article>
             <!-- Contact Me -->
