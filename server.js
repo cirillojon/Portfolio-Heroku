@@ -45,8 +45,6 @@ const apiKey = process.env.API_KEY;
 // Get the GoogleMaps api key from environment variables
 const mapsKey = process.env.MAPS;
 
-//const mapsKey = "AIzaSyAAfZ5AWOmw2ojJK1Mazyw7IY8y281zBLM";
-
 // Serve the maps api key to the client-side
 app.get('/api/get-api-key', (req, res) => {
   res.json({ mapsKey: mapsKey });
