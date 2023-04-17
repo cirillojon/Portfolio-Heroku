@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const app = express();
+//app.use(express.static('public'));
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -37,10 +39,20 @@ app.use(cors());
 // Accept JSON payloads
 app.use(express.json());
 
-// Get the API key from environment variables
+// Get the OpenAI API key from environment variables
 const apiKey = process.env.API_KEY;
 
-//console.log(`Loaded API key: ${apiKey}`);
+// Get the GoogleMaps api key from environment variables
+const mapsKey = process.env.MAPS;
+
+//const mapsKey = "AIzaSyAAfZ5AWOmw2ojJK1Mazyw7IY8y281zBLM";
+
+// Serve the maps api key to the client-side
+app.get('/api/get-api-key', (req, res) => {
+  res.json({ mapsKey: mapsKey });
+});
+
+//console.log(`Loaded maps key: ${mapsKey}`);
 
 // API route for chat
 app.post('/api/chat', async (req, res) => {
