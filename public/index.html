@@ -31,8 +31,9 @@
          }
       </style>
       <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+      <script src="assets/js/maps.js" defer></script>
    </head>
-   <body class="is-preload">
+   <body class="is-preload" onload="initMap()">
       <!-- Wrapper -->
       <div id="wrapper">
          <div class="container">
@@ -155,8 +156,8 @@
             <article id="Projects">
                <h2 class="major">CuttingBoard</h2>
                <span class="image main"><img src="images/CB.jpg" alt="" /></span>
-               <p><strong>Augmented Reality Cooking Simulator (Cutting Board) | 2023 </strong></p>
-               <p><strong>Tools & Technologies: </strong> Unity, C#, Firebase, Figma, SpoonacularAPI</p>
+               <p><strong>Augmented Reality Cooking Simulator (CuttingBoard) | 2023 </strong></p>
+               <p><strong>Tools & Technologies: </strong> Unity, C#, Python, Firebase, Figma, Blender, SpoonacularAPI</p>
                <ul>
                   <li>Member of startup.</li>
                   <li>Part of pitching team for UCF Joust Competition for Student Entrepreneurs. </li>
@@ -164,6 +165,7 @@
                   <li>Developed API calls to fetch recipe information, seamlessly integrating data into the application.</li>
                   <li>Integrated Firebase with Unity, using cloud-storage to securely host 3D assets and user account information.</li>
                   <li>Implemented GLTFUtility plugin to instantiate 3D models into Unity app during runtime from cloud-storage.</li>
+                  <li>Utilized OpenAI's API to implement a GPT-4 Plugin into Blender to create models via automated scripting</li>
                </ul>
                <p><strong>Link to website: </strong> <a href="https://arcuttingboard.com/">arcuttingboard.com</a></p>
                <h2 class="major">Parallel Chess AI</h2>
@@ -412,6 +414,11 @@
                   <p id="fact">Click a button below to get a useless fact!</p>
                   <button id="randomFactBtn">Get Random Useless Fact</button>
                   <button id="todaysFactBtn">Get Today's Useless Fact</button>
+               </div>
+                <!-- Google Maps -->
+               <h2 class="major">Google Maps</h2>
+               <div id="google-maps-widget" class="widget">
+               <div id="map" style="height: 400px; width: 100%;"></div>
                </div>    
             </article>
             <!-- Photography -->
