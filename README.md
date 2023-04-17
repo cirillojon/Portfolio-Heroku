@@ -20,6 +20,8 @@ Project continued from 'Portfolio' repo that originally was hosted statically on
 
 7. **Useless Facts**: Get random or today's useless fact using the [Useless Facts API](https://uselessfacts.jsph.pl/).
 
+8. **Google Maps**: Explore a map centered on New York City using the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview).
+
 ## Technologies Used
 
 - HTML5 (Website Design)
