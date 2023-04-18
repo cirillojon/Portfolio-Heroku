@@ -32,9 +32,7 @@ async function fetchLeetCodeUserData(username) {
   }
 }
 
-
 function updateLeetCodeProgress(data) {
-  document.getElementById('leetcode-username').textContent = data.username;
   document.getElementById('leetcode-solved').textContent = data.totalSolved;
   document.getElementById('leetcode-total').textContent = data.totalQuestions;
   document.getElementById('leetcode-completion').textContent = (

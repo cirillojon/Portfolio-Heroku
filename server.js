@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const app = express();
-const { createProxyMiddleware } = require('http-proxy-middleware');
+//const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
 //app.use(express.static('public'));
@@ -54,21 +54,33 @@ app.get('/api/get-api-key', (req, res) => {
 });
 
 
-// Proxy middleware for LeetCode API
-app.use('/leetcode-api', createProxyMiddleware({
-  target: 'https://leetcode.com',
-  changeOrigin: true,
-  pathRewrite: {
-    '^/leetcode-api': ''
-  },
-  onProxyRes: (proxyRes, req, res) => {
-    console.log('Proxy response status:', proxyRes.statusCode);
-  },
-  onError: (err, req, res) => {
-    console.log('Proxy error:', err);
-  },
-}));
+//Github
+const githubApiBaseUrl = 'https://api.github.com/users/';
+const githubApiToken = process.env.GITHUB_API_TOKEN;
 
+app.get('/api/github/:username', async (req, res) => {
+    const username = req.params.username;
+
+    const headers = {
+        'Authorization': `Bearer ${githubApiToken}`
+    };
+
+    try {
+        const userDataResponse = await fetch(`${githubApiBaseUrl}${username}`, { headers });
+        const userData = await userDataResponse.json();
+
+        const reposResponse = await fetch(`${githubApiBaseUrl}${username}/repos`, { headers });
+        const repos = await reposResponse.json();
+
+        res.json({
+            userData,
+            repos
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to fetch GitHub data' });
+    }
+});
 
 //console.log(`Loaded maps key: ${mapsKey}`);
 
