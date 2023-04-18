@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const app = express();
+
 //const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
@@ -69,12 +70,12 @@ app.get('/api/github/:username', async (req, res) => {
       const reposResponse = await fetch(`${githubApiBaseUrl}${username}/repos`, { headers });
       const repos = await reposResponse.json();
 
-      const totalCommits = await fetchOverallCommits(username);
+      //const totalCommits = await fetchOverallCommits(username);
 
       res.json({
           userData,
           repos,
-          totalCommits
+          //totalCommits
       });
   } catch (error) {
       console.error(error);
