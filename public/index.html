@@ -374,13 +374,14 @@
                   height: 100%;
                   }
                </style>
-               <!-- Live Chess -->
-               <h2 class="major">Live Chess</h2>
-               <div class="live-chess-widget">
-                  <div class="responsive-iframe-container">
-                     <iframe src="https://lichess.org/tv/frame?theme=brown&bg=dark" allowtransparency="true" frameborder="0"></iframe>
-                  </div>
-               </div>
+               <!-- LeetCode Progress -->
+               <h2 class="major">LeetCode Progress</h2>
+               <div id="leetcode-progress-widget" class="widget" style="display: flex; flex-direction: column;">
+                     <h3>LeetCode Username: <span id="leetcode-username"></span></h3>
+                     <p>Problems Solved: <span id="leetcode-solved"></span></p>
+                     <p>Total Problems: <span id="leetcode-total"></span></p>
+                     <p>Completion Percentage: <span id="leetcode-completion"></span>%</p>
+            </div>
                <!-- Trivia -->
                <div class="trivia-widget">
                   <h2 class="major">Trivia</h2>
@@ -429,6 +430,13 @@
                      <ul id="events-list"></ul> 
                   </div>
                </div>
+               <!-- Live Chess -->
+               <h2 class="major">Live Chess</h2>
+               <div class="live-chess-widget">
+                  <div class="responsive-iframe-container">
+                     <iframe src="https://lichess.org/tv/frame?theme=brown&bg=dark" allowtransparency="true" frameborder="0"></iframe>
+                  </div>
+               </div>
                <!-- GitHub Progress -->
             <h2 class="major">GitHub Progress</h2>
             <div id="github-progress-widget" class="widget" style="display: flex; flex-direction: column;">
@@ -438,14 +446,7 @@
                <!-- <p id="github-commits">Commits:: </p> -->
             </div>
             <div>
-               <!-- LeetCode Progress -->
-               <h2 class="major">LeetCode Progress</h2>
-               <div id="leetcode-progress-widget" class="widget" style="display: flex; flex-direction: column;">
-                   <h3>LeetCode Username: <span id="leetcode-username"></span></h3>
-                   <p>Problems Solved: <span id="leetcode-solved"></span></p>
-                   <p>Total Problems: <span id="leetcode-total"></span></p>
-                   <p>Completion Percentage: <span id="leetcode-completion"></span>%</p>
-            </div>
+
             </article>
             <!-- Photography -->
             <article id="Photography">
