@@ -3,6 +3,9 @@ const express = require('express');
 const cors = require('cors');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const app = express();
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+
 //app.use(express.static('public'));
 
 
@@ -49,6 +52,23 @@ const mapsKey = process.env.MAPS;
 app.get('/api/get-api-key', (req, res) => {
   res.json({ mapsKey: mapsKey });
 });
+
+
+// Proxy middleware for LeetCode API
+app.use('/leetcode-api', createProxyMiddleware({
+  target: 'https://leetcode.com',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/leetcode-api': ''
+  },
+  onProxyRes: (proxyRes, req, res) => {
+    console.log('Proxy response status:', proxyRes.statusCode);
+  },
+  onError: (err, req, res) => {
+    console.log('Proxy error:', err);
+  },
+}));
+
 
 //console.log(`Loaded maps key: ${mapsKey}`);
 
@@ -106,6 +126,9 @@ app.get('/images', async (req, res) => {
     res.status(500).send('Error fetching images');
   }
 });
+
+
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
