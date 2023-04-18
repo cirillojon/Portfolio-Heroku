@@ -17,32 +17,42 @@ query getUserProfile($username: String!) {
 }`;
 
 async function fetchLeetCodeUserData(username) {
-  const response = await fetch('/leetcode-api/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query,
-      variables: {
-        username,
-      },
-    }),
-  });
-  const data = await response.json();
-  return data.data.userProfile;
+  try {
+    const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
-function updateLeetCodeProgress(userData) {
-  document.getElementById('leetcode-username').textContent = userData.username;
-  document.getElementById('leetcode-solved').textContent = userData.submissionProgress.acTotal;
-  document.getElementById('leetcode-total').textContent = userData.submissionProgress.questionTotal;
+
+function updateLeetCodeProgress(data) {
+  document.getElementById('leetcode-username').textContent = data.username;
+  document.getElementById('leetcode-solved').textContent = data.totalSolved;
+  document.getElementById('leetcode-total').textContent = data.totalQuestions;
   document.getElementById('leetcode-completion').textContent = (
-    (userData.submissionProgress.acTotal / userData.submissionProgress.questionTotal) * 100
+    (data.totalSolved / data.totalQuestions) * 100
   ).toFixed(2);
 }
 
+
 (async () => {
   const userData = await fetchLeetCodeUserData(leetcodeUsername);
-  updateLeetCodeProgress(userData);
+
+  if (userData) {
+    updateLeetCodeProgress(userData);
+  } else {
+    const leetcodeProgressWidget = document.getElementById('leetcode-progress-widget');
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'LeetCode data is currently unavailable. Please try again later.';
+    leetcodeProgressWidget.appendChild(errorMessage);
+  }
 })();
+
