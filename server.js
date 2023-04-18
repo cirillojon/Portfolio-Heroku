@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const app = express();
-
 //const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
@@ -56,33 +55,32 @@ app.get('/api/get-api-key', (req, res) => {
 
 
 //Github
+const githubApiBaseUrl = 'https://api.github.com/users/';
+const githubApiToken = process.env.GITHUB_API_TOKEN;
+
 app.get('/api/github/:username', async (req, res) => {
-  const username = req.params.username;
+    const username = req.params.username;
 
-  const headers = {
-      'Authorization': `Bearer ${githubApiToken}`
-  };
+    const headers = {
+        'Authorization': `Bearer ${githubApiToken}`
+    };
 
-  try {
-      const userDataResponse = await fetch(`${githubApiBaseUrl}${username}`, { headers });
-      const userData = await userDataResponse.json();
+    try {
+        const userDataResponse = await fetch(`${githubApiBaseUrl}${username}`, { headers });
+        const userData = await userDataResponse.json();
 
-      const reposResponse = await fetch(`${githubApiBaseUrl}${username}/repos`, { headers });
-      const repos = await reposResponse.json();
+        const reposResponse = await fetch(`${githubApiBaseUrl}${username}/repos`, { headers });
+        const repos = await reposResponse.json();
 
-      //const totalCommits = await fetchOverallCommits(username);
-
-      res.json({
-          userData,
-          repos,
-          //totalCommits
-      });
-  } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Failed to fetch GitHub data' });
-  }
+        res.json({
+            userData,
+            repos
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to fetch GitHub data' });
+    }
 });
-
 
 //console.log(`Loaded maps key: ${mapsKey}`);
 
@@ -148,4 +146,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
-
