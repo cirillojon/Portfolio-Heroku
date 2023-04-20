@@ -3,6 +3,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 300);
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth / 4, window.innerHeight / 4);
+renderer.setPixelRatio(10);
 const container = document.getElementById("threejs-container");
 container.style.background = "transparent"; // Set container's background to transparent
 container.appendChild(renderer.domElement);
@@ -69,6 +70,7 @@ function animate() {
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.02;
 
+  
   renderer.render(scene, camera);
 }
 
