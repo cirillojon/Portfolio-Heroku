@@ -1,2 +1,6 @@
 # .gitignore
 node_modules/
+
+.env
+*firebase-adminsdk*.json
+*:Zone.Identifier

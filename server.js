@@ -22,8 +22,18 @@ const firebaseConfig = {
 
 const admin = require('firebase-admin');
 
-// Load the service account JSON
-const serviceAccount = require('./jon-s-portfolio-firebase-adminsdk-zsbj6-6c13faed04.json');
+// Service account comes from env: FIREBASE_SERVICE_ACCOUNT (raw JSON, e.g. Heroku config var)
+// or FIREBASE_SERVICE_ACCOUNT_PATH (path to a local, git-ignored key file).
+function loadServiceAccount() {
+  if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+    return JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+  }
+  if (process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
+    return require(require('path').resolve(process.env.FIREBASE_SERVICE_ACCOUNT_PATH));
+  }
+  throw new Error('Set FIREBASE_SERVICE_ACCOUNT or FIREBASE_SERVICE_ACCOUNT_PATH');
+}
+const serviceAccount = loadServiceAccount();
 
 // Initialize Firebase
 admin.initializeApp({
