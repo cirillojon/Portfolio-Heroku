@@ -20,31 +20,45 @@ const firebaseConfig = {
   measurementId: "G-10M12Y1FXM"
 };
 
-const admin = require('firebase-admin');
+const { initializeApp, cert } = require('firebase-admin/app');
+const { getStorage } = require('firebase-admin/storage');
 
 // Service account comes from env: FIREBASE_SERVICE_ACCOUNT (raw JSON, e.g. Heroku config var)
 // or FIREBASE_SERVICE_ACCOUNT_PATH (path to a local, git-ignored key file).
 function loadServiceAccount() {
   if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-    return JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+    try {
+      return JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+    } catch {
+      // Don't log the parser message: it quotes part of the input (the private key).
+      throw new Error(`FIREBASE_SERVICE_ACCOUNT is not valid JSON (length ${process.env.FIREBASE_SERVICE_ACCOUNT.length}, starts with ${JSON.stringify(process.env.FIREBASE_SERVICE_ACCOUNT.trim().slice(0, 1))})`);
+    }
   }
   if (process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
     return require(require('path').resolve(process.env.FIREBASE_SERVICE_ACCOUNT_PATH));
   }
-  throw new Error('Set FIREBASE_SERVICE_ACCOUNT or FIREBASE_SERVICE_ACCOUNT_PATH');
+  return null;
 }
-const serviceAccount = loadServiceAccount();
 
-// Initialize Firebase
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  storageBucket: firebaseConfig.storageBucket,
-});
+// Without credentials the site still runs; only the photo gallery is disabled.
+let storage = null;
+try {
+  const serviceAccount = loadServiceAccount();
+  if (serviceAccount) {
+    initializeApp({
+      credential: cert(serviceAccount),
+      storageBucket: firebaseConfig.storageBucket,
+    });
+    storage = getStorage();
+  } else {
+    console.warn('FIREBASE_SERVICE_ACCOUNT not set; photo gallery disabled');
+  }
+} catch (error) {
+  console.error('Failed to initialize Firebase; photo gallery disabled:', error.message);
+}
 
-const storage = admin.storage();
-
-// Serve static files
-app.use(express.static('public'));
+// Serve static files; redirect: false so /images reaches the gallery route instead of redirecting to public/images/
+app.use(express.static(require('path').join(__dirname, 'public'), { redirect: false }));
 
 // Enable CORS for all routes
 app.use(cors());
@@ -135,6 +149,9 @@ async function callChatGPTAPI(message, apiKey) {
 }
 
 app.get('/images', async (req, res) => {
+  if (!storage) {
+    return res.json([]);
+  }
   try {
     const imageRefs = await storage.bucket().getFiles({ prefix: 'Compressed/' });
     const imageURLs = await Promise.all(
