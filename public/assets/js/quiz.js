@@ -13,27 +13,55 @@ async function fetchQuizQuestions() {
     }
 
     const data = await response.json();
-    renderQuiz(data.results);
+    if (!data.results || !data.results.length) {
+      throw new Error(`OpenTDB response code ${data.response_code}`);
+    }
+    renderQuiz(data.results.map(decodeQuestion));
   } catch (error) {
     console.error(`Error fetching quiz data: ${error}`);
+    quizContainer.textContent = "Trivia is currently unavailable. Please try again in a few seconds.";
+    quizContainer.style.display = "block";
   }
+}
+
+// OpenTDB returns HTML entities (e.g. &quot;); decode so answers compare and display correctly.
+function decodeHtml(text) {
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = text;
+  return textarea.value;
+}
+
+function decodeQuestion(question) {
+  const correct = decodeHtml(question.correct_answer);
+  const answers = question.incorrect_answers.map(decodeHtml).concat(correct);
+  for (let i = answers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [answers[i], answers[j]] = [answers[j], answers[i]];
+  }
+  return { question: decodeHtml(question.question), correct_answer: correct, answers };
+}
+
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML.replace(/"/g, "&quot;");
 }
 
 function renderQuiz(questions) {
   let quizHtml = "";
+  document.getElementById("score-display").innerHTML = "";
   questions.forEach((question, index) => {
-    const answers = question.incorrect_answers.concat(question.correct_answer);
     quizHtml += `<div class="question">
-      <h3>Question ${index + 1}: ${question.question}</h3>
+      <h3>Question ${index + 1}: ${escapeHtml(question.question)}</h3>
       <ul>
-        ${answers
+        ${question.answers
           .map(
             (answer) =>
               `<li>
                 <label class="answer-option">
-                  <input type="radio" name="question-${index}" value="${answer}">
+                  <input type="radio" name="question-${index}" value="${escapeHtml(answer)}">
                   <span class="checkmark"></span>
-                  ${answer}
+                  ${escapeHtml(answer)}
                 </label>
               </li>`
           )
@@ -69,6 +97,5 @@ function hideQuiz() {
     hideQuizBtn.style.display = "none";
 }
 
-viewQuizBtn.addEventListener("click", fetchQuizQuestions);
 viewQuizBtn.addEventListener("click", fetchQuizQuestions);
 hideQuizBtn.addEventListener("click", hideQuiz);

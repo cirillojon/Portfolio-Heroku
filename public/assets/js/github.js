@@ -13,6 +13,14 @@ function updateGitHubProgress(userData, repos) {
 }
 
 (async () => {
-    const { userData, repos } = await fetchGitHubData(githubUsername);
-    updateGitHubProgress(userData, repos);
+    try {
+        const { userData, repos } = await fetchGitHubData(githubUsername);
+        if (!userData || !userData.login) {
+            throw new Error('Unexpected GitHub response');
+        }
+        updateGitHubProgress(userData, repos);
+    } catch (error) {
+        console.error(error);
+        document.getElementById('github-username').textContent = 'GitHub stats are currently unavailable.';
+    }
 })();

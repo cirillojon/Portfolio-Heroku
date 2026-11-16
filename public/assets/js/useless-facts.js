@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const factElement = document.getElementById('fact');
 
   randomFactBtn.addEventListener('click', () => {
-    getUselessFact('https://uselessfacts.jsph.pl/random.json');
+    getUselessFact('https://uselessfacts.jsph.pl/api/v2/facts/random?language=en');
   });
 
   todaysFactBtn.addEventListener('click', () => {
-    getUselessFact('https://uselessfacts.jsph.pl/today.json');
+    getUselessFact('https://uselessfacts.jsph.pl/api/v2/facts/today?language=en');
   });
 
   async function getUselessFact(endpoint) {

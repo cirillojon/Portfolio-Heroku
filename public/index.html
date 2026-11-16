@@ -31,9 +31,8 @@
          }
       </style>
       <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-      <script src="assets/js/maps.js" defer></script>
    </head>
-   <body class="is-preload" onload="initMap()">
+   <body class="is-preload">
       <!-- Wrapper -->
       <div id="wrapper">
       <div class="container">
@@ -87,56 +86,40 @@
          <article id="WorkExperience">
             <h2 class="major">F5</h2>
             <span class="image main"><img src="images/F5.png" alt="" /></span>
-            <p><strong>Software Engineer II</strong><br>
-               December 2024 - Present | Seattle, WA (Hybrid)<br>
+            <p><strong>Software Engineer III</strong><br>
+               December 2026 - Present | Seattle, WA (Hybrid)<br>
+               <strong>Software Engineer II</strong><br>
+               December 2024 - December 2026<br>
                <strong>Software Engineer I</strong><br>
                August 2023 - December 2024<br>
                <a href="https://www.f5.com/">Link to company</a>
             </p>
-            <p><strong>Tools & Technologies:</strong> Python, Docker, Kubernetes, Linux, GitSwarm, REST/RESTCONF APIs, Flask, JavaScript, SQL, Postman</p>
-            <p><strong>Current Role Highlights (SE II):</strong></p>
+            <p><strong>Tools & Technologies:</strong> Python, React, JavaScript, Flask, SQL, Docker, Kubernetes, K3s, Linux, REST/RESTCONF APIs, GitSwarm, Postman</p>
+            <p><strong>Role Highlights:</strong></p>
             <ul>
-               <li>Architected and implemented the API and Web UI for the new BVT Orchestration Service, improving the build verification pipeline experience for F5OS developers and test maintainers with better pre-merge submission, failure triage, and trend visualization capabilities.</li>
-               <li>Leading F5OS integration testing and automation development for the BIG-IP Next (as a VM) project.</li>
-               <li>Ownership of F5OS x BIG-IP TMOS Tenant High Availability Traffic Automation execution and triage.</li>
-               <li>Supporting development teams in the migration from CentOS to Rocky Linux within F5OS, ensuring test pipeline backward compatibility.</li>
-               <li>SME in the development, triage, and maintenance of the general F5OS build verification pipeline.</li>
+               <li>Quality owner for F5OS across the full hardware portfolio (VELOS chassis, rSeries appliances, and the next-generation sGen platform) and every active release train.</li>
+               <li>End-to-end owner of the BVT Orchestration Service (BOS): API, React UI, database, deployment, and infrastructure, used daily across the F5OS development organization.</li>
+               <li>Built BOS auto-triage, replacing up to an hour of daily manual failure analysis with categorized summaries and automated known-issue matching.</li>
+               <li>Designed the BOS Release Dashboard: a single view of all testing for an F5OS/TMOS build combination, with direct test launch and TestRail/Bugzilla integration, supporting a new security release train across all active branches.</li>
+               <li>Added self-service test configuration, automated reporting, failure trend analysis, and device health management to BOS.</li>
+               <li>Primary resource for defect investigation and triage during sGen platform bring-up; led a cross-functional root-cause effort on a critical blocker.</li>
+               <li>Major contributor to F5OS 2.0.0 GA; led US-side test integration for the Rocky Linux/K3s migration and the test-workflow changes for the new Unified ISO format, keeping existing pipelines backward compatible.</li>
+               <li>Led build verification for customer engineering hotfix and CVE releases, and turned customer escalations into permanent regression coverage, such as a full F5OS + TMOS HA upgrade flow as one reusable job.</li>
+               <li>Led the effort to bring overloaded build verification queues under control as new platforms, release trains, and infrastructure issues compounded demand.</li>
+               <li>SME for the F5OS build verification codebase, shared test libraries, device recovery, and triage.</li>
             </ul>
             <p><strong>Key Accomplishments:</strong></p>
             <ul>
-               <li>Developed 70+ new Python integration tests for F5OS and BIG-IP products.</li>
-               <li>Tests and scripts independently designed have been executed 150,000+ times across various pipelines.</li>
-               <li>Added 100+ new methods to core libraries, enhancing team productivity.</li>
-               <li>Found and filed 150+ product bugs; verified fixes for 200+ bugs.</li>
-               <li>Architected high-priority test pipeline integrations requiring cross-team collaboration.</li>
-               <li>Recognized through BEF5 Recognition program 10 times within first year.</li>
+               <li>Filed 300+ product bugs, consistently leading the team, and triaged thousands of build verification results.</li>
+               <li>Authored 100+ new tests and scripts; tests and scripts I designed have run 150,000+ times across pipelines.</li>
+               <li>Recognized with a LeadF5 award, 4 individual BeF5 awards, 3 BeF5 group awards (one from a VP), and 30+ peer shout-outs.</li>
+               <li>On BIG-IP Next, built an automated multi-instance HA sequence that surfaced an intermittent failure on VELOS and rSeries, then partnered with developers to fix it and restore HA for a customer-facing release.</li>
+               <li>Mentor new hires and interns, write technical documentation and training material, and run knowledge-share sessions.</li>
             </ul>
             <p><strong>Test Development and Coverage:</strong></p>
             <ul>
                <li>Comprehensive test coverage including: Modular BIG-IP tenant (Next), High-Availability Testing, Classic BIG-IP tenant testing (CBIP), OS installations, orchestration (Docker, Kubernetes, OpenShift), F5OS API (RESTCONF), traffic performance, GUI testing, FPGAs, DDM, DAG Testing, and authentication/security.</li>
             </ul>
-            <p><strong>Build Verification Pipeline:</strong></p>
-            <ul>
-               <li>Key contributor to the new build verification pipeline required for all F5OS developers.</li>
-               <li>Implemented automated recovery processes for build verification pipeline failures.</li>
-               <li>SME in test pipeline template JSON development and maintenance.</li>
-               <li>Expert in debugging complex log files, quickly determining root causes and implementing fixes.</li>
-            </ul>
-            <p><strong>Internal Tool Development:</strong></p>
-            <ul>
-               <li>Created multiple dashboards for monitoring device health and build pipeline results.</li>
-               <li>Deployed containerized dashboards using Docker, built with JavaScript/HTML, Python/Flask, and SQL databases.</li>
-               <li>Developed visualization tools for pipeline failures and known bug tracking.</li>
-               <li>Self-initiated these projects to automate manual processes and improve team efficiency.</li>
-            </ul>
-            <p><strong>Technical Growth:</strong></p>
-            <ul>
-               <li>Deep expertise in rSeries & VELOS products through extensive hands-on debugging in F5OS shell & CLI.</li>
-               <li>Proficient in networking, hardware troubleshooting, OS installation, and container orchestration.</li>
-               <li>Expert in traffic setup and debugging between systems, switches, and hypervisors.</li>
-               <li>Advanced skills in API testing and automation development using Postman and RESTCONF.</li>
-            </ul>
-            </p> 
             <h2 class="major">VS&Co.</h2>
             <span class="image main"><img src="images/VS.png" alt="" /></span>
             <p>
@@ -207,6 +190,44 @@
          </article>
          <!-- Projects -->
          <article id="Projects">
+            <h2 class="major">NISAR Explorer</h2>
+            <span class="image main"><img src="images/nisar.jpg" alt="NISAR Surface Change Explorer" /></span>
+            <p><strong>NISAR Surface Change Explorer | NASA Space Apps Challenge 2026 | November 2026</strong><br />
+               <strong>Local event award winner: Best Use of Art &amp; Technology</strong>
+            </p>
+            <p><strong>Tools & Technologies: </strong> Python, Flask, SQLAlchemy, h5py, NumPy, React, Vite, Leaflet, MCP, Fly.io, Vercel, GitHub Actions</p>
+            <ul>
+               <li>Built with team Subject to Change for the "Dancing with the SARs" challenge; our team won the local event award for Best Use of Art &amp; Technology.</li>
+               <li>An interactive map, like "Google Maps for NISAR", showing floods, crops, sinking ground, lava, and ice through the NASA–ISRO radar satellite.</li>
+               <li>Searches NASA's catalog live and reads only the pixels needed from large HDF5 files over HTTP range requests, with mosaics, time-lapses, and before/after views.</li>
+               <li>Guided stories and plain-language explanations for newcomers, plus shareable findings exportable as CSV, REST calls, or MCP tools for AI agents.</li>
+            </ul>
+            <p><strong>Link to project:</strong> <a href="https://nisar-surface-change-app.vercel.app">https://nisar-surface-change-app.vercel.app</a></p>
+            <p><strong>Link to Space Apps page:</strong> <a href="https://www.spaceappschallenge.org/2026/find-a-team/subject-to-change/?tab=project">Subject to Change</a></p>
+            <p><strong>Link to GitHub repository:</strong> <a href="https://github.com/cirillojon/nisar-surface-change-app">https://github.com/cirillojon/nisar-surface-change-app</a></p>
+            <h2 class="major">Transit Explorer</h2>
+            <span class="image main"><img src="images/transit-explorer.jpg" alt="Transit Explorer" /></span>
+            <p><strong>Gamified Puget Sound Transit Map | April 2026</strong></p>
+            <p><strong>Tools & Technologies: </strong> React, Vite, React-Leaflet, Python, Flask, SQLAlchemy, Firebase Auth, Fly.io, Vercel, GitHub Actions, Sentry</p>
+            <ul>
+               <li>Log bus and train rides by tapping your boarding and ending stops, and watch the ridden segments fill in on your personal map.</li>
+               <li>Uses real OneBusAway data for King County Metro, Sound Transit, Community Transit, and more.</li>
+               <li>Per-route progress, achievements, and all-time, weekly, and monthly leaderboards with public profiles.</li>
+               <li>Mobile-first with Google sign-in; CI/CD through GitHub Actions to Fly.io and Vercel, with Sentry monitoring.</li>
+            </ul>
+            <p><strong>Link to project:</strong> <a href="https://transit-explorer.org/">https://transit-explorer.org/</a></p>
+            <p><strong>Link to GitHub repository:</strong> <a href="https://github.com/cirillojon/transit-explorer">https://github.com/cirillojon/transit-explorer</a></p>
+            <h2 class="major">Andromeda</h2>
+            <span class="image main"><img src="images/andromeda.jpg" alt="Andromeda" /></span>
+            <p><strong>Home Improvement Platform | May 2025</strong></p>
+            <p><strong>Tools & Technologies: </strong> Next.js, TypeScript, React, Tailwind CSS, shadcn/ui, Python, Flask, PostgreSQL, Docker, Nginx, DigitalOcean, Vercel</p>
+            <ul>
+               <li>A platform for homeowners to design, customize, and order their own solar system, roof, and HVAC.</li>
+               <li>Uses the Google Solar and Maps APIs to estimate a home's solar potential and lay out panels on the roof.</li>
+               <li>Built with a team: Next.js frontend with Kinde authentication, and a Flask REST API backed by PostgreSQL, deployed with Docker and Nginx.</li>
+            </ul>
+            <p><strong>Link to project:</strong> <a href="https://romeo-kappa.vercel.app/">https://romeo-kappa.vercel.app/</a></p>
+            <p><strong>Link to GitHub repository:</strong> <a href="https://github.com/cirillojon/Andromeda">https://github.com/cirillojon/Andromeda</a></p>
             <h2 class="major">CuttingBoard</h2>
             <span class="image main"><img src="images/CB.jpg" alt="" /></span>
             <p><strong>Augmented Reality Cooking Simulator (CuttingBoard) | 2023 </strong></p>
@@ -254,11 +275,11 @@
                <li><strong>Weather Fetcher</strong>: Get the current weather for any city using the <a href="https://openweathermap.org/api">OpenWeatherMap API</a>.</li>
                <li><strong>Trivia Game</strong>: Test your knowledge with a trivia game powered by the <a href="https://opentdb.com/api_config.php">OpenTDB API</a>.</li>
                <li><strong>Random Joke</strong>: Enjoy a random joke fetched from the <a href="https://jokeapi.dev/">JokeAPI</a> using their REST API.</li>
-               <li><strong>ChatGPT Chatbot</strong>: Interact with an AI-powered chatbot using the <a href="https://beta.openai.com/docs/">OpenAI API</a>.</li>
                <li><strong>NASA Astronomy Picture of the Day</strong>: Discover NASA's featured image of the day using their <a href="https://api.nasa.gov/#apod">APOD API</a>.</li>
                <li><strong>Three.js</strong>: Rotating 3D cube & torus on the landing page, created using <a href="https://threejs.org/">Three.js</a>.</li>
                <li><strong>Useless Facts</strong>: Get random or today's useless fact using the <a href="https://uselessfacts.jsph.pl/">Useless Facts API</a>.</li>
-               <li><strong>Google Maps</strong>: Explore a map centered on New York City using the <a href="https://developers.google.com/maps/documentation/javascript/overview">Google Maps JavaScript API</a>.</li>
+               <li><strong>Recent Texas Games</strong>: Recent Texas Longhorns football results from <a href="https://www.thesportsdb.com/">TheSportsDB</a>.</li>
+               <li><strong>LeetCode &amp; GitHub Progress</strong>: Live stats from my LeetCode and GitHub profiles.</li>
             </ul>
             <p><strong>Link to Project:</strong> <a href="https://cirillojon.herokuapp.com/">https://cirillojon.herokuapp.com/</a></p>
             <p><strong>Link to GitHub repository:</strong> <a href="https://github.com/cirillojon/Portfolio-Heroku">https://github.com/cirillojon/Portfolio-Heroku</a></p>
@@ -342,7 +363,7 @@
                <li>Will turn this into something more substantial.</li>
             </ul>
             <p><strong>Link to Project:</strong> <a href="https://in-the-works.netlify.app/">https://in-the-works.netlify.app/</a></p>
-            <p><strong>Link to GitHub repository:</strong> <a href=https://github.com/cirillojon/something-great">https://github.com/cirillojon/something-great</a></p>
+            <p><strong>Link to GitHub repository:</strong> <a href="https://github.com/cirillojon/something-great">https://github.com/cirillojon/something-great</a></p>
             <h2 class="major">MIPS Processor</h2>
             <span class="image main"><img src="images/C.jpg" alt="" /></span>
             <p><strong>MIPS Processor Emulator written in C | 2021 </strong> </p>
@@ -434,12 +455,16 @@
                C • 
                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> • 
                <a href="https://www.python.org/">Python</a> • 
+               <a href="https://www.typescriptlang.org/">TypeScript</a> • 
                <a href="https://www.sqltutorial.org/">SQL</a> • 
                <a href="https://www.latex-project.org/">LaTeX</a> •
                <a href="https://go.dev/">Go</a> •
-               <a href="https://dart.dev/">Dart</a>
+               <a href="https://dart.dev/">Dart</a> •
+               Bash
             </p>
             <p><strong>Data Management & Tools:</strong>
+               <a href="https://www.postgresql.org/">PostgreSQL</a> • 
+               <a href="https://www.sqlite.org/">SQLite</a> • 
                <a href="https://www.mongodb.com/">MongoDB</a> • 
                <a href="https://firebase.google.com/">Firebase</a> • 
                <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">MSSQL</a> • 
@@ -449,12 +474,25 @@
                <a href="https://www.atlassian.com/software/jira">Jira</a> • 
                <a href="https://bitbucket.org/">Bitbucket</a> •
                <a href="https://www.docker.com/">Docker</a> •
-               <a href="https://kubernetes.io/">Kubernetes</a>
+               <a href="https://kubernetes.io/">Kubernetes</a> •
+               <a href="https://github.com/features/actions">GitHub Actions</a> •
+               <a href="https://fly.io/">Fly.io</a> •
+               <a href="https://vercel.com/">Vercel</a> •
+               <a href="https://sentry.io/">Sentry</a> •
+               Linux
             </p>
             <p><strong>Libraries, Frameworks, & IDEs:</strong> 
                <a href="https://reactjs.org/">React.js</a> • 
+               <a href="https://nextjs.org/">Next.js</a> • 
+               <a href="https://vitejs.dev/">Vite</a> • 
+               <a href="https://tailwindcss.com/">Tailwind CSS</a> • 
+               <a href="https://leafletjs.com/">Leaflet</a> • 
+               <a href="https://flask.palletsprojects.com/">Flask</a> • 
+               <a href="https://www.sqlalchemy.org/">SQLAlchemy</a> • 
+               <a href="https://expressjs.com/">Express</a> • 
                <a href="https://nodejs.org/en/">Node.js</a> • 
                <a href="https://pandas.pydata.org/">Pandas</a> • 
+               <a href="https://numpy.org/">NumPy</a> • 
                <a href="https://keras.io/">Keras</a> • 
                <a href="https://dotnet.microsoft.com/">.NET</a> • 
                <a href="https://unity.com/">Unity</a> • 
@@ -482,7 +520,7 @@
                clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <!-- Chess Puzzle -->
             <h2 class="major">Chess Puzzle</h2>
-            <div id="csoDpCon"> class ="widget"</div>
+            <div id="csoDpCon" class="widget"></div>
             <script type="text/javascript" src="https://www.chessstrategyonline.com/js/widgets.min.js"></script>
             <script type="text/javascript">
                csoDailyPuzzle({
@@ -600,7 +638,6 @@
                   </a>
                </p>
             </div>
-            <div>
          </article>
          <!-- Photography -->
          <article id="Photography">
@@ -656,7 +693,7 @@
          </div>
          <!-- Footer -->
          <footer id="footer">
-            <p class="copyright">&copy; Jonathan Cirillo 2023. <a href="#Contact">Contact Me</a>.</p>
+            <p class="copyright">&copy; Jonathan Cirillo 2026. <a href="#Contact">Contact Me</a>.</p>
          </footer>
       </div>
       <!-- BG -->
@@ -670,7 +707,6 @@
       <script src="assets/js/weather.js"></script>
       <script src="assets/js/fetchJoke.js"></script>
       <script src="assets/js/quiz.js"></script>
-      <script src="assets/js/chat.js"></script>
       <script src="assets/js/loadImageGallery.js"></script>
       <script src="assets/js/threejsSetup.js"></script>
       <script src="assets/js/nasa-apod.js"></script>

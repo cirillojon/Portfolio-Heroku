@@ -71,9 +71,7 @@ const githubApiToken = process.env.GITHUB_API_TOKEN;
 app.get('/api/github/:username', async (req, res) => {
     const username = req.params.username;
 
-    const headers = {
-        'Authorization': `Bearer ${githubApiToken}`
-    };
+    const headers = githubApiToken ? { 'Authorization': `Bearer ${githubApiToken}` } : {};
 
     try {
         const userDataResponse = await fetch(`${githubApiBaseUrl}${username}`, { headers });
@@ -98,10 +96,13 @@ app.get('/api/github/:username', async (req, res) => {
 app.post('/api/chat', async (req, res) => {
   const message = req.body.message;
 
-  // Call the ChatGPT API
-  const responseMessage = await callChatGPTAPI(message, apiKey);
-
-  res.json({ message: responseMessage });
+  try {
+    const responseMessage = await callChatGPTAPI(message, apiKey);
+    res.json({ message: responseMessage });
+  } catch (error) {
+    console.error(error);
+    res.status(502).json({ error: 'Chat is currently unavailable' });
+  }
 });
 
 async function callChatGPTAPI(message, apiKey) {
@@ -137,7 +138,7 @@ app.get('/images', async (req, res) => {
   try {
     const imageRefs = await storage.bucket().getFiles({ prefix: 'Compressed/' });
     const imageURLs = await Promise.all(
-      imageRefs[0].map(async (file) => {
+      imageRefs[0].filter((file) => !file.name.endsWith('/')).map(async (file) => {
         const [url] = await file.getSignedUrl({ action: 'read', expires: '03-09-2491' });
         return url;
       })

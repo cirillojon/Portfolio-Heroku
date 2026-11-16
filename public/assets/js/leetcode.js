@@ -16,20 +16,28 @@ query getUserProfile($username: String!) {
   }
 }`;
 
+// Community stats APIs; try each until one responds with totalSolved/totalQuestions.
+const leetcodeApis = [
+  (username) => `https://leetcode-api-faisalshohag.vercel.app/${username}`,
+  (username) => `https://leetcode-stats.tashif.codes/${username}`,
+];
+
 async function fetchLeetCodeUserData(username) {
-  try {
-    const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
-
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
+  for (const buildUrl of leetcodeApis) {
+    try {
+      const response = await fetch(buildUrl(username));
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+      const data = await response.json();
+      if (data.totalSolved != null && data.totalQuestions) {
+        return data;
+      }
+    } catch (error) {
+      console.error(error);
     }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-    return null;
   }
+  return null;
 }
 
 function updateLeetCodeProgress(data) {
